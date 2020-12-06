@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react" // Default로 선언하여 export된 경우 바로 사용가능
+import { Link } from "gatsby" // default로 선언되지 않은 것들은 export된 변수명으로! 괄호안에서 사용!
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
