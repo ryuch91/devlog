@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash.kebabcase"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -8,6 +9,7 @@ import SEO from "../components/seo"
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const tags = post.frontmatter.tags || []  //포스트의 태그 정보를 저장하는 변수
   const { previous, next } = data
 
   return (
@@ -24,6 +26,21 @@ const BlogPostTemplate = ({ data, location }) => {
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
+          <div>
+            <ul style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `flex-start`,
+              listStyle: `none`,
+            }}>
+              Tags:
+              {tags.map(t => (
+                <li key={kebabCase(t)} style={{margin: `0 5px`,}}>
+                  <Link to={`/tags/${kebabCase(t)}`}>{t}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -85,6 +102,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
