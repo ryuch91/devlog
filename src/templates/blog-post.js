@@ -41,6 +41,7 @@ const BlogPostTemplate = ({ data, location }) => {
               ))}
             </ul>
           </div>
+          <hr/>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
