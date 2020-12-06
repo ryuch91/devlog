@@ -63,7 +63,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/blog-icon.png`, // site의 root에 relative하게 설정 (사이트의 icon 설정)
       },
     },
     `gatsby-plugin-react-helmet`,
