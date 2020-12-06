@@ -71,5 +71,6 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`, // Top Navigation Bar를 위해 포함
+    `gatsby-plugin-dark-mode`, // Top Navigation Bar의 Darkmode toggle을 위해 포함
   ],
 }

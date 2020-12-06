@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import NavbarLinks from "./NavbarLinks"
+import DarkModeToggle from "./Toggle"
 import Logo from "./Logo"
 import styled from 'styled-components'
 
@@ -91,6 +92,7 @@ const Navbar = () => {
   return(
     <Navigation>
       <Logo />
+      <DarkModeToggle />
       <Toggle
         navbarOpen={navbarOpen}
         onClick={() => setNavbarOpen(!navbarOpen)}
