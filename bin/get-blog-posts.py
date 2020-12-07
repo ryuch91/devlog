@@ -103,9 +103,16 @@ def process_block(block, text_prefix=''):
 
     return text, metas
 
+def collection_to_markdown(collection_id, ignore):
+    contents_collection = client.get_collection(collection_id)
+    posts = contents_collection.get_rows()
+    #properties = contents_collection.get_schema_properties()
+    for post in posts:
+        print(f'post -> markdown : {post}')
+        to_markdown(post)
 
-def to_markdown(page_id, ignore):
-    page = client.get_block(page_id)
+def to_markdown(page):
+    #page = client.get_block(page_id)
     page_title = page.title
     slug = slugify(page_title)
     text = ''
@@ -128,10 +135,11 @@ def to_markdown(page_id, ignore):
     text = metaText + text
 
     # Save the page data if it is not the root page.
-    if not ignore:
-        markdown_pages[slug] = text
+    markdown_pages[slug] = text
 
     return slug
+
+
 
 if __name__=="__main__":
     print(f' -> Cleaning the "{dest_path}" folder')
@@ -141,7 +149,8 @@ if __name__=="__main__":
         pass
     os.mkdir(dest_path)
 
-    to_markdown(root_page_id, ignore=ignore_root)
+    collection_to_markdown(root_page_id, ignore=ignore_root)
+    #to_markdown(root_page_id, ignore=ignore_root)
 
     for slug, markdown in markdown_pages.items():
         file_name = slug + '.md'
