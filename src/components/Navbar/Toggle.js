@@ -16,7 +16,8 @@ const DarkModeButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -3px;
+  margin-top: 0px;
+  margin-left: auto;
 
   &:before,
   &:after {

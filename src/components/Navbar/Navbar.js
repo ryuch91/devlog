@@ -99,15 +99,9 @@ const Navbar = () => {
       >
         <Hamburger open={navbarOpen} />
       </Toggle>
-      {navbarOpen ? (
-        <Navbox>
-          <NavbarLinks />
-        </Navbox>
-      ) : (
-        <Navbox open>
-          <NavbarLinks />
-        </Navbox>
-      )}
+      <Navbox open={!navbarOpen}>
+        <NavbarLinks />
+      </Navbox>
     </Navigation>
   )
 }
