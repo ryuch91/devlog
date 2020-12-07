@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/devlog",
   siteMetadata: {
     title: `Chungkwon's Devlog`,
     author: {

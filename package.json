@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "chungkwon-devlog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Gatsby Blog from Gatsby-Starter-Blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Chungkwon Ryu <ryuch91@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ryuch91/devlog/issues"
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.12.0",
@@ -37,17 +37,20 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "gh-pages": "3.1.0",
     "prettier": "2.1.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://ryuch91.github.com/devlog",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "blog",
+    "react"
   ],
   "license": "0BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/ryuch91/devlog.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -56,6 +59,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   }
 }
