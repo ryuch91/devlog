@@ -21,6 +21,15 @@ const LayoutWrapper = styled.div`
   a:hover {
     color: var(--textLinkHover);
   }
+  blockquote {
+    color: var(--textNormal);
+  }
+
+  code,
+  kbd,
+  samp {
+    color: var(--textCode);
+  }
   transition: color 0.2s ease-out, background 0.2s ease-out
 `
 
