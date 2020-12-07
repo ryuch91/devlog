@@ -1,0 +1,46 @@
+# 해당 Action의 이름
+name: Gatsby Build and Deploy
+
+# Action이 실행될 시점 컨트롤 
+on:
+  schedule: # 주기적으로 실행하고 싶을 때 (여기서는 한국 시간 매일 새벽 0시)
+    - cron: "0 9 * * *"
+  workflow_dispatch: # Action 탭에서 수동으로 실행하고 싶을 때
+  push: # 특정 브랜치에 push되었을 때
+    branches: [ master ]
+
+# Workflow구성하는 하나 이상의 job 설정(순차적으로 또는 병렬로 수행 가능)
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # job이 실행될 플랫폼
+    steps: # job을 구성하는 step들을 정의
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with: 
+          python-version: 3.8
+      - name: Set up pipenv
+        uses: dschep/install-pipenv-action@v1
+        with:
+          version: 2020.8.13
+      - name: Checkout # 내 repository를 checkout $GITHUB_WORKSPACE에 위치
+        uses: actions/checkout@v2.3.2
+        with:
+          persist-credentials: false
+      - name: Install and Build
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_ROOT_PAGE_ID: ${{ secrets.NOTION_ROOT_PAGE_ID }}
+        run: |
+          pipenv install
+          pipenv run python ./bin/get-blog-posts.py
+          yarn install
+          yarn build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: public
+          CLEAN: true
+      - name: Print Finished Message
+        run : echo 'Build & Deploy is finished!'
