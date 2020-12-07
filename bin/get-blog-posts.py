@@ -91,7 +91,7 @@ def process_block(block, text_prefix=''):
         elif content.type == 'video':
             text = text + f'`video: {content.source}`\n\n'
         elif content.type == 'page':
-            subpage_slug = to_markdown(content.id, ignore=False)
+            subpage_slug = to_markdown(content.id)
             text = text + f'[{content.title}](/blog/{subpage_slug})\n\n'
         else:
             print("Unsupported type: " + content.type)
