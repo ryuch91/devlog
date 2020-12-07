@@ -3,7 +3,10 @@ module.exports = {
     title: `Chungkwon's Devlog`,
     author: {
       name: `Ryu Chungkwon`,
-      summary: `Programmer`,
+      summary: ``,
+    },
+    social: {
+      github: `ryuch91`,
     },
     description: `개발에 관한 모든 경험을 담기 위한 블로그`,
     siteUrl: `https://ryuch91.github.io/`,
