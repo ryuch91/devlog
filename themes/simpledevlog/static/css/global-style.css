@@ -1,0 +1,16 @@
+.logo h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5em;
+}
+
+/* flex container를 사용해서 footer가 화면 바닥에 위치하도록 한다.*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* flex [flex-grow, flex-shrink, flex-basis] */
+main {
+    flex: 1;
+}

@@ -1,3 +1,10 @@
 {{ define "main" }}
-{{ .Content }}
+<div class="container">
+    <div class="section">
+        <!-- Bulma content class let us able to keep using Markdown-->
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
 {{ end }}

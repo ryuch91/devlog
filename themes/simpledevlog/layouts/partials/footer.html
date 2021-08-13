@@ -1,0 +1,15 @@
+<!-- Use footer class from bulma-->
+<footer class="footer">
+  <!-- Limits the width of the footer section on large screens-->
+  <div class="container">
+    <!-- Use bulma column. It takes just the minimun width it needs-->
+    <!-- On mobile, it stacks on top of each other-->
+    <div class="columns has-text-centered">
+      {{ range .Site.Menus.footer }}
+      <div class="column is-narrow">
+        <a href="{{ .URL }}" class="">{{ .Name }}</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</footer>
