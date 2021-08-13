@@ -1,0 +1,10 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+
+theme = "simpledevlog"
+
+#googleAnalytics = "UA-123-45"
+
+[params]
+    description = "Gan's devlog"

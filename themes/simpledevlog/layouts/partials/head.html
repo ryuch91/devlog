@@ -1,0 +1,29 @@
+<!--Please check frontend checklist at here https://frontendchecklist.io-->
+<head>
+    <meta charset="utf-8">
+
+    <!--Support responsive pages on mobiles-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    
+    <!-- Add page title [current page title from md] + [site title]-->
+    <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
+    
+    <!-- Description priority : 1. post metadata 2. page wide desc in config.toml-->
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+    
+    <!--Use canonical url of the page-->
+    <link rel="canonical" href="{{ .Permalink }}"/>
+    
+    <!-- Hugo internal templates (OpenGraph, Twitter)-->
+    <!-- If someone links our page to social media, the title and image and desc will be shown-->
+    <!-- Post frontmatter should contain title, date, description, images-->
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+
+    <!-- Add Google Analytics-->
+    <!-- this template should be inserted last just before the /head end tag-->
+    <!-- To enable GA, insert GA tracking code to config.toml file -->
+    {{ if not (in (string .Site.BaseURL) "localhost") }}
+        {{ template "_internal/google_analytics_async.html" . }}
+    {{ end }}
+</head>
