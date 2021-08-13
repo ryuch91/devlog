@@ -1,0 +1,16 @@
+{{ define "main" }}
+<!--Template file for list pages such as /blog -->
+<!-- But _default directory is the last directory in the Hugo lookup order-->
+<!-- If there is no other applicable template then Hugo uses default one(this one)-->
+<div class="container">
+  <div class="section">
+    <div class="content">
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

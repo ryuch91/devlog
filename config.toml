@@ -8,6 +8,8 @@ theme = "simpledevlog"
 
 [params]
     description = "Gan's devlog"
+    author = "Chungkwon Ryu"
+    authorImage = "/images/author-cat.jpg"
 
 [[menu.main]]
     name = "About"

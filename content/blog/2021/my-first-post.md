@@ -3,6 +3,8 @@ title: "My First Post"
 date: 2021-08-13T00:04:30+09:00
 description: "This is my first post.."
 draft: true
+images: ["/images/blog/2021/08/developer.jpg"]
+categories: [Blogging]
 ---
 
 # H1 level title
